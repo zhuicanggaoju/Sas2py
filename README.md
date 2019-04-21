@@ -1,5 +1,7 @@
 ## Sas2py
 
+Author: 高源  BNU数据分析中心
+
 **SAS cluster and plot by Python**
 
 > **使用方式**
