@@ -1,6 +1,6 @@
 ## Sas2py
 
-**SAS cluster plot by Python** 
+**SAS cluster and plot by Python**
 
 > **使用方式**
 
@@ -8,7 +8,7 @@
 * 适当修改`sas` 与 `python` 文件的数据和first变量
 * sas cluster.sas
 * python Sas2py.py
-* 图片存放在 ./picture/cluster.png 
+* 图片存放在 ./picture/cluster.png
 
 
 
@@ -119,7 +119,7 @@ for i in range(7):
         label = data.c.replace(set(data.c),color[:len(set(data.c))])
         ax = fig.add_subplot(3,3,i+1)
         ax.set_title(method[i],fontproperties=zhfont1,fontsize=15)
-        ax.scatter(x, y, c=label,s=30, alpha=0.8) 
+        ax.scatter(x, y, c=label,s=30, alpha=0.8)
         first = False
         continue
     if i == 2:
@@ -139,4 +139,4 @@ plt.show()
 
 聚类图像如下:
 
-![不同聚类方法](.\picture\demo.png)
+![不同聚类方法](https://github.com/zhuicanggaoju/Sas2py/blob/master/picture/demo.png)
