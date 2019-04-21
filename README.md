@@ -7,7 +7,7 @@ Author: 高源  BNU数据分析中心
 > **使用方式**
 
 * 适用于Windows系统
-* 适当修改`sas` 与 `python` 文件的数据和first变量
+* 适当修改`sas` 与 `python` 文件，包括`sas` 的库名、分类个数，python的图示文字、文件名
 * sas cluster.sas
 * python Sas2py.py
 * 图片存放在 ./picture/cluster.png

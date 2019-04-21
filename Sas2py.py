@@ -26,7 +26,7 @@ for i in range(7):
         ax.scatter(x, y, c=label,s=30, alpha=0.8)
         first = False
         continue
-    if i == 2:
+    if i == 2: #调整其中一个图的每块颜色
         color = ['red','green','blue','purple','gold']
     data = pd.read_sas('./saslib/out%d.sas7bdat' % i)
     data.dropna(axis=0, how='any', inplace=True)
