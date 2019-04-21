@@ -17,7 +17,10 @@ for i in range(7):
         data = pd.read_sas('./saslib/data.sas7bdat')
         x = data.x
         y = data.y
-        label = data.c.replace(set(data.c),color[:len(set(data.c))])
+        try:
+            label = data.c.replace(set(data.c),color[:len(set(data.c))])
+        except AttributeError:
+            label = 'black'
         ax = fig.add_subplot(3,3,i+1)
         ax.set_title(method[i],fontproperties=zhfont1,fontsize=15)
         ax.scatter(x, y, c=label,s=30, alpha=0.8)
