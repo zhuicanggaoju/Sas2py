@@ -1,7 +1,7 @@
-libname sl "C:\Users\20141\Desktop\7-¾ÛÀà·ÖÎö×÷Òµ\saslib";
+libname sl "C:\Users\20141\Desktop\7-èšç±»åˆ†æä½œä¸š\saslib";
 options ls=72 ps=40;
-/*²úÉú¾ùÖµ·Ö±ğÎª(0,0),(3,0),(1,2),Ğ­²îÕó
-¾ùÎªµ¥Î»ÕóµÄ¶şÎ¬ÕıÌ¬·Ö²¼*/
+/*äº§ç”Ÿå‡å€¼åˆ†åˆ«ä¸º(0,0),(3,0),(1,2),åå·®é˜µ
+å‡ä¸ºå•ä½é˜µçš„äºŒç»´æ­£æ€åˆ†å¸ƒ*/
 data sl.data;
    keep x y c;
    n=50;scale=1;
@@ -18,48 +18,53 @@ data sl.data;
 	  return;
 run;
 
-
+*å¿«é€Ÿèšç±»
 proc fastclus data=sl.data out=sl.out1 maxc=3 noprint;
   var x y;
 run;
 
+*æœ€çŸ­è·ç¦»èšç±»æ³•
 proc cluster data=sl.data outtree=sl.tree
          method=single noprint;
    var x y;
 proc tree noprint out=sl.out2 n=3 dock=5;
    copy x y;
-   title'²»ÄÜÍêÈ«·Ö¿ªµÄÇò×´Êı¾İµÄ×î¶Ì¾àÀë¾ÛÀà·¨';
+   title'ä¸èƒ½å®Œå…¨åˆ†å¼€çš„çƒçŠ¶æ•°æ®çš„æœ€çŸ­è·ç¦»èšç±»æ³•';
 run;
+
+*ç±»å¹³å‡æ³•
 proc cluster data=sl.data outtree=sl.tree
          method=averge noprint;
    var x y;
 proc tree noprint out=sl.out3 n=3;
    copy x y;
-   title'²»ÄÜÍêÈ«·Ö¿ªµÄÇò×´Êı¾İµÄÀàÆ½¾ù·¨';
+   title'ä¸èƒ½å®Œå…¨åˆ†å¼€çš„çƒçŠ¶æ•°æ®çš„ç±»å¹³å‡æ³•';
 run;
 
+
+*WARDç¦»å·®å¹³æ–¹å’Œæ³•
 proc cluster data=sl.data outtree=sl.tree
          method=ward noprint;
    var x y;
 proc tree noprint out=sl.out4 n=3;
    copy x y;
-   title'²»ÄÜÍêÈ«·Ö¿ªµÄÇò×´Êı¾İµÄWARDÀë²îÆ½·½ºÍ·¨';
+   title'ä¸èƒ½å®Œå…¨åˆ†å¼€çš„çƒçŠ¶æ•°æ®çš„WARDç¦»å·®å¹³æ–¹å’Œæ³•';
 run;
 
+*é‡å¿ƒæ³•
 proc cluster data=sl.data outtree=sl.tree
          method=centroid noprint;
    var x y;
 proc tree noprint out=sl.out5 n=3 dock=5;
    copy x y;
-   title'²»ÄÜÍêÈ«·Ö¿ªµÄÇò×´Êı¾İµÄÖØĞÄ·¨¾ÛÀà·ÖÎö';
+   title'ä¸èƒ½å®Œå…¨åˆ†å¼€çš„çƒçŠ¶æ•°æ®çš„é‡å¿ƒæ³•èšç±»åˆ†æ';
 run;
 
+*ä¸¤é˜¶æ®µèšç±»
 proc cluster data=sl.data outtree=sl.tree
          method=twostage k=10 noprint;
    var x y;
 proc tree noprint out=sl.out6 n=3;
    copy x y;
-   title'²»ÄÜÍêÈ«·Ö¿ªµÄÇò×´Êı¾İµÄÁ½½×¶ÎÃÜ¶È·¨';
+   title'ä¸èƒ½å®Œå…¨åˆ†å¼€çš„çƒçŠ¶æ•°æ®çš„ä¸¤é˜¶æ®µå¯†åº¦æ³•';
 run;
-
-
